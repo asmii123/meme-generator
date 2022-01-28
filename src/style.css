@@ -38,7 +38,7 @@ main {
 .form {
     display: grid;
     grid-template: 40px 40px / 1fr 1fr;
-    gap: 17px;
+    gap: 17px 17px;
 }
 
 .form--input {
