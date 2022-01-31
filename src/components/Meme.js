@@ -3,11 +3,16 @@ import memesData from "../memesData.js"
 
 export default function Meme() {
     const [memeImage, setMemeImage] = React.useState("")
-    function getMemeImage() {
-        const memesArray = memesData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNumber].url)
-        
+    
+    async function  getMemeImage() {
+        // const memesArray = memesData.data.memes
+        // const randomNumber = Math.floor(Math.random() * memesArray.length)
+        // setMemeImage(memesArray[randomNumber].url)
+        const responsePromise = await fetch('https://meme-api.herokuapp.com/gimme');
+        const responseJSON = await responsePromise.json();
+       // return responseJSON.result;
+       setMemeImage(responseJSON.url)
+
     }
     
     return (
